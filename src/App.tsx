@@ -11,13 +11,15 @@ import Main from "./components/Main/Main";
 function App() {
   return (
     <div className="App">
-      <Header />
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </div>
+      <Router>
+        <Header />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </div>
+      </Router>
     </div>
   );
 }
