@@ -7,18 +7,19 @@ import {
   Routes,
 } from "react-router-dom";
 import Main from "./components/Main/Main";
+import { Container } from "@mui/material";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Header />
-        <div className="content">
+        <Container maxWidth={"lg"}>
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
-        </div>
+        </Container>
       </Router>
     </div>
   );
