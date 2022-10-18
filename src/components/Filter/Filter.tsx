@@ -6,7 +6,11 @@ import {
 } from "../../services/TriviaService";
 import "./Filter.css";
 
-const Filter = () => {
+interface Props {
+  onFilter: (categories: string, difficulty: string) => void;
+}
+
+const Filter = ({ onFilter }: Props) => {
   const [categories, setCategories] = useState<TriviaCategory[]>();
   const [selectedCategories, setSelectedCategories] = useState<
     string | undefined
@@ -20,7 +24,9 @@ const Filter = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    getTriviaQuestions(selectedCategories, "medium");
+    if (selectedCategories) {
+      onFilter(selectedCategories, "medium");
+    }
   };
 
   const setSelected = (value: string) => {
