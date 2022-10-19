@@ -16,6 +16,10 @@ export const getTriviaQuestions = (
       )}`
     )
     .then((response) => {
+      response.data.forEach(
+        (item: TriviaQuestionResponse) =>
+          (item.options = [...item.incorrectAnswers, item.correctAnswer])
+      );
       return response.data;
     });
 };

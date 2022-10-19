@@ -7,16 +7,17 @@ interface Props {
 }
 
 const Question = ({ question, moveToNextQuestion }: Props) => {
+  console.log(question);
   return (
     <div className="Question">
       <p>
-        <b>Question</b>: {question.question}
+        <b>Question</b>: {question?.question}
       </p>
       <p>
-        <b>Category</b>: {question.category}
+        <b>Category</b>: {question?.category}
       </p>
       <h5>Choose the correction option from below:</h5>
-      {question.options.map((value, index) => (
+      {question?.options?.map((value, index) => (
         <button key={index} style={{ margin: "10px" }}>
           {value}
         </button>
