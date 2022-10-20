@@ -9,8 +9,9 @@ const UserName = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setTimeout(() => {
-      score.username = name;
-      addScore(score);
+      let newScore = { ...score };
+      newScore.username = name;
+      addScore(newScore);
     });
   };
 

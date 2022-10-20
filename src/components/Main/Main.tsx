@@ -22,8 +22,6 @@ const Main = () => {
     );
   };
 
-  console.log(score);
-
   const moveToNextQuestion = () => {
     setQuestionNumer(questionNumber < 4 ? questionNumber + 1 : -1);
   };
