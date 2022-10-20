@@ -5,11 +5,9 @@ import "./Question.css";
 
 interface Props {
   question: TriviaQuestionResponse;
-  questionNumber: number;
   moveToNextQuestion: () => void;
 }
 
-<<<<<<< HEAD
 const Question = ({ question, moveToNextQuestion }: Props) => {
   const { score, addScore } = useContext(QuestionContext);
 
@@ -25,10 +23,6 @@ const Question = ({ question, moveToNextQuestion }: Props) => {
 
     moveToNextQuestion();
   };
-=======
-const Question = ({ question, questionNumber, moveToNextQuestion }: Props) => {
-  console.log(question);
->>>>>>> bbad27a (Hide 'Next Question' button and randomize options)
   return (
     <div className="Question">
       <p>
@@ -47,15 +41,7 @@ const Question = ({ question, questionNumber, moveToNextQuestion }: Props) => {
           {value}
         </button>
       ))}
-<<<<<<< HEAD
-      {/* {questionNumber < 5 && (
-        <button onClick={moveToNextQuestion}>Next Question</button>
-      )} */}
-=======
-      {questionNumber < 5 && (
-        <button onClick={moveToNextQuestion}>Next Question</button>
-      )}
->>>>>>> bbad27a (Hide 'Next Question' button and randomize options)
+      <button onClick={moveToNextQuestion}>Next Question</button>
     </div>
   );
 };
