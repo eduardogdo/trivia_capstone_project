@@ -12,14 +12,10 @@ const Question = ({ question, moveToNextQuestion }: Props) => {
   const { score, addScore } = useContext(QuestionContext);
 
   const answerQuestion = (answer: string) => {
-    console.log(answer);
-    console.log(question);
     if (answer === question.correctAnswer) {
       score.score++;
       addScore(score);
     }
-
-    console.log(score);
 
     moveToNextQuestion();
   };
