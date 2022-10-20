@@ -8,7 +8,7 @@ import "./Main.css";
 const Main = () => {
   const [questions, setQuestions] = useState<TriviaQuestionResponse[]>([]);
 
-  const [questionNumber, setQuestionNumer] = useState(1);
+  const [questionNumber, setQuestionNumer] = useState(0);
 
   const handleFilter = (categories: string, difficulty: string) => {
     getTriviaQuestions(categories, difficulty).then(
@@ -19,15 +19,16 @@ const Main = () => {
   };
 
   const moveToNextQuestion = () => {
-    setQuestionNumer(questionNumber + 1);
+    setQuestionNumer(questionNumber < 5 ? questionNumber + 1 : -1);
   };
 
   return (
     <div className="Main">
       <Filter onFilter={handleFilter} />
-      {questions && questions.length > 0 && (
+      {questions && questions.length > 0 && questionNumber >= 0 && (
         <Question
           question={questions[questionNumber]}
+          questionNumber={questionNumber + 1}
           moveToNextQuestion={moveToNextQuestion}
         />
       )}

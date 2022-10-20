@@ -3,10 +3,11 @@ import "./Question.css";
 
 interface Props {
   question: TriviaQuestionResponse;
+  questionNumber: number;
   moveToNextQuestion: () => void;
 }
 
-const Question = ({ question, moveToNextQuestion }: Props) => {
+const Question = ({ question, questionNumber, moveToNextQuestion }: Props) => {
   console.log(question);
   return (
     <div className="Question">
@@ -22,7 +23,9 @@ const Question = ({ question, moveToNextQuestion }: Props) => {
           {value}
         </button>
       ))}
-      <button onClick={moveToNextQuestion}>Next Question</button>
+      {questionNumber < 5 && (
+        <button onClick={moveToNextQuestion}>Next Question</button>
+      )}
     </div>
   );
 };
