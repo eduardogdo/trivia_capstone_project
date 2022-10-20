@@ -18,6 +18,7 @@ const UserName = () => {
         <h2>Results</h2>
         <h4>Name: {score.username ?? "Insert your name"}</h4>
         <h5>Score: {score.score ?? "Respond some questions"}</h5>
+
         {!score.username && (
           <form onSubmit={handleSubmit}>
             <TextField
@@ -32,6 +33,14 @@ const UserName = () => {
             </Button>
           </form>
         )}
+
+        <div>
+          {score.username && (
+            <Button variant="contained" type="submit" size={"large"}>
+              Submit Score
+            </Button>
+          )}
+        </div>
       </Card>
     </section>
   );

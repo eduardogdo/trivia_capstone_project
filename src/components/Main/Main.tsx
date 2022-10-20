@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import { useContext, useState } from "react";
 import QuestionContext from "../../context/QuestionContext";
 import TriviaQuestionResponse from "../../models/TriviaQuestionResponse";
+import { setScore } from "../../services/ScoreService";
 import { getTriviaQuestions } from "../../services/TriviaService";
 import Filter from "../Filter/Filter";
 import Question from "../Question/Question";
@@ -21,10 +22,13 @@ const Main = () => {
     );
   };
 
-  console.log(score);
-
   const moveToNextQuestion = () => {
     setQuestionNumer(questionNumber < 4 ? questionNumber + 1 : -1);
+
+    if (questionNumber === 4) {
+      console.log(score);
+      setScore(score);
+    }
   };
 
   return (
