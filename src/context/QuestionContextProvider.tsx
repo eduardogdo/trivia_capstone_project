@@ -7,19 +7,17 @@ interface Props {
 }
 
 const QuestionContextProvider = ({ children }: Props) => {
-  const [score, setScore] = useState<Score[]>([]);
+  const [score, setScore] = useState<Score>({
+    username: "",
+    score: 0,
+    id: 0,
+  });
   const addScore = (score: Score): void => {
-    setScore((prev) => [...prev, score]);
-  };
-  const deleteScore = (id: number): void => {
-    setScore((prev) => {
-      const index: number = prev.findIndex((item) => item.id === id);
-      return [...prev.slice(0, index), ...prev.slice(index + 1)];
-    });
+    setScore(score);
   };
 
   return (
-    <QuestionContext.Provider value={{ score, addScore, deleteScore }}>
+    <QuestionContext.Provider value={{ score, addScore }}>
       {children}
     </QuestionContext.Provider>
   );

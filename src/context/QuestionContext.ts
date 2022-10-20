@@ -2,15 +2,17 @@ import { createContext } from "react";
 import Score from "../models/ScoreModel";
 
 interface QuestionContextModel {
-  score: Score[];
+  score: Score;
   addScore: (newScore: Score) => void;
-  deleteScore: (id: number) => void;
 }
 
 const defaultValues: QuestionContextModel = {
-  score: [],
+  score: {
+    username: "",
+    score: 0,
+    id: 0,
+  },
   addScore: (newScore: Score) => {},
-  deleteScore: (id: number) => {},
 };
 
 const QuestionContext = createContext(defaultValues);

@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import QuestionContext from "../../context/QuestionContext";
 import TriviaQuestionResponse from "../../models/TriviaQuestionResponse";
 import "./Question.css";
 
@@ -7,7 +9,20 @@ interface Props {
 }
 
 const Question = ({ question, moveToNextQuestion }: Props) => {
-  console.log(question);
+  const { score, addScore } = useContext(QuestionContext);
+
+  const answerQuestion = (answer: string) => {
+    console.log(answer);
+    console.log(question);
+    if (answer === question.correctAnswer) {
+      score.score++;
+      addScore(score);
+    }
+
+    console.log(score);
+
+    moveToNextQuestion();
+  };
   return (
     <div className="Question">
       <p>
@@ -18,7 +33,11 @@ const Question = ({ question, moveToNextQuestion }: Props) => {
       </p>
       <h5>Choose the correction option from below:</h5>
       {question?.options?.map((value, index) => (
-        <button key={index} style={{ margin: "10px" }}>
+        <button
+          onClick={() => answerQuestion(value)}
+          key={index}
+          style={{ margin: "10px" }}
+        >
           {value}
         </button>
       ))}
