@@ -19,7 +19,7 @@ const Main = () => {
   };
 
   const moveToNextQuestion = () => {
-    setQuestionNumer(questionNumber < 5 ? questionNumber + 1 : -1);
+    setQuestionNumer(questionNumber < 4 ? questionNumber + 1 : -1);
   };
 
   return (
@@ -28,7 +28,6 @@ const Main = () => {
       {questions && questions.length > 0 && questionNumber >= 0 && (
         <Question
           question={questions[questionNumber]}
-          questionNumber={questionNumber + 1}
           moveToNextQuestion={moveToNextQuestion}
         />
       )}
