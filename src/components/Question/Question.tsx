@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import QuestionContext from "../../context/QuestionContext";
 import TriviaQuestionResponse from "../../models/TriviaQuestionResponse";
+import { setScore } from "../../services/ScoreService";
 import "./Question.css";
 
 interface Props {
@@ -15,10 +16,13 @@ const Question = ({ question, moveToNextQuestion }: Props) => {
     if (answer === question.correctAnswer) {
       score.score++;
       addScore(score);
+
+      setScore(score);
     }
 
     moveToNextQuestion();
   };
+
   return (
     <div className="Question">
       <p>
