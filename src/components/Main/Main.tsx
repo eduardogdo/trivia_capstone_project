@@ -17,6 +17,7 @@ const Main = () => {
     getTriviaQuestions(categories, difficulty).then(
       (resp: TriviaQuestionResponse[]) => {
         setQuestions(resp);
+        setQuestionNumer(0);
       }
     );
   };
@@ -32,7 +33,7 @@ const Main = () => {
       <Filter onFilter={handleFilter} />
       <Grid container spacing={2}>
         <Grid item xs={8}>
-          {questions && questions.length > 0 && questionNumber < 5 ? (
+          {questions && questions.length > 0 && questionNumber !== -1 ? (
             <Question
               question={questions[questionNumber]}
               moveToNextQuestion={moveToNextQuestion}

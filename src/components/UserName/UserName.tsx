@@ -8,8 +8,10 @@ const UserName = () => {
   const [name, setName] = useState("");
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    score.username = name;
-    addScore(score);
+    setTimeout(() => {
+      score.username = name;
+      addScore(score);
+    });
   };
 
   return (
