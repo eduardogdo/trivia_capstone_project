@@ -7,12 +7,16 @@ interface Props {
 }
 
 const QuestionContextProvider = ({ children }: Props) => {
-  const [score, setScore] = useState<Score>({
-    username: "",
-    score: 0,
-    id: 0,
-    _id: "",
-  });
+  const [score, setScore] = useState<Score>(
+    localStorage.getItem("user")
+      ? JSON.parse(localStorage.getItem("user")!)
+      : {
+          username: "",
+          score: 0,
+          id: 0,
+          _id: "",
+        }
+  );
   const addScore = (score: Score): void => {
     setScore(score);
   };

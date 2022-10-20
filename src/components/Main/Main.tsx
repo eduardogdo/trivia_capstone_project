@@ -43,7 +43,14 @@ const Main = () => {
           )}
         </Grid>
         <Grid item xs={12} md={4}>
-          {(questionNumber === -1 || score.username) && <UserName />}
+          {(questionNumber === -1 || score.username) && (
+            <UserName
+              onNewUser={() => {
+                setQuestionNumer(0);
+                setQuestions([]);
+              }}
+            />
+          )}
         </Grid>
       </Grid>
     </Container>
