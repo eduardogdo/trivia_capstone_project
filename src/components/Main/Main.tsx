@@ -11,7 +11,7 @@ import "./Main.css";
 const Main = () => {
   const [questions, setQuestions] = useState<TriviaQuestionResponse[]>([]);
   const { score } = useContext(QuestionContext);
-  const [questionNumber, setQuestionNumer] = useState(1);
+  const [questionNumber, setQuestionNumer] = useState(0);
 
   const handleFilter = (categories: string, difficulty: string) => {
     getTriviaQuestions(categories, difficulty).then(
@@ -24,7 +24,7 @@ const Main = () => {
   console.log(score);
 
   const moveToNextQuestion = () => {
-    setQuestionNumer(questionNumber + 1);
+    setQuestionNumer(questionNumber < 4 ? questionNumber + 1 : -1);
   };
 
   return (

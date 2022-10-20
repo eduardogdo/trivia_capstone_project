@@ -37,7 +37,6 @@ const Question = ({ question, moveToNextQuestion }: Props) => {
           {value}
         </button>
       ))}
-      <button onClick={moveToNextQuestion}>Next Question</button>
     </div>
   );
 };
