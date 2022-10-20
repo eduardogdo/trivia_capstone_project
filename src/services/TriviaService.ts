@@ -1,6 +1,6 @@
 import axios from "axios";
 import TriviaQuestionResponse from "../models/TriviaQuestionResponse";
-import TriviaCategory from "./TriviaCategory";
+import TriviaCategory from "../models/TriviaCategory";
 
 export const getTriviaQuestions = (
   categories: string | undefined,

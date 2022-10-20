@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useState } from "react";
-import TriviaCategory from "../../services/TriviaCategory";
+import TriviaCategory from "../../models/TriviaCategory";
 import { getCategories } from "../../services/TriviaService";
 import Button from "@mui/material/Button";
 import "./Filter.css";
