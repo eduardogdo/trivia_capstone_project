@@ -11,6 +11,7 @@ const defaultValues: QuestionContextModel = {
     username: "",
     score: 0,
     id: 0,
+    _id: "",
   },
   addScore: (newScore: Score) => {},
 };

@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import { useContext, useState } from "react";
 import QuestionContext from "../../context/QuestionContext";
 import TriviaQuestionResponse from "../../models/TriviaQuestionResponse";
@@ -18,6 +18,7 @@ const Main = () => {
     getTriviaQuestions(categories, difficulty).then(
       (resp: TriviaQuestionResponse[]) => {
         setQuestions(resp);
+        setQuestionNumer(0);
       }
     );
   };
@@ -32,11 +33,11 @@ const Main = () => {
   };
 
   return (
-    <div className="Main">
+    <Container maxWidth={"xl"} className="Main">
       <Filter onFilter={handleFilter} />
       <Grid container spacing={2}>
-        <Grid item xs={8}>
-          {questions && questions.length > 0 && questionNumber < 5 ? (
+        <Grid item xs={12} md={8}>
+          {questions && questions.length > 0 && questionNumber !== -1 ? (
             <Question
               question={questions[questionNumber]}
               moveToNextQuestion={moveToNextQuestion}
@@ -47,11 +48,11 @@ const Main = () => {
             </>
           )}
         </Grid>
-        <Grid item xs={4}>
-          <UserName />
+        <Grid item xs={12} md={4}>
+          {(questionNumber === -1 || score.username) && <UserName />}
         </Grid>
       </Grid>
-    </div>
+    </Container>
   );
 };
 

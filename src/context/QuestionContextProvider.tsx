@@ -11,6 +11,7 @@ const QuestionContextProvider = ({ children }: Props) => {
     username: "",
     score: 0,
     id: 0,
+    _id: "",
   });
   const addScore = (score: Score): void => {
     setScore(score);

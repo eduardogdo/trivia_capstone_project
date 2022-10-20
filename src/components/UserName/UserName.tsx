@@ -1,4 +1,4 @@
-import { Button, Card, TextField } from "@mui/material";
+import { Button, Card, CardContent, TextField } from "@mui/material";
 import { FormEvent, useContext, useState } from "react";
 import QuestionContext from "../../context/QuestionContext";
 import "./UserName.css";
@@ -8,8 +8,11 @@ const UserName = () => {
   const [name, setName] = useState("");
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    score.username = name;
-    addScore(score);
+    setTimeout(() => {
+      let newScore = { ...score };
+      newScore.username = name;
+      addScore(newScore);
+    });
   };
 
   return (
