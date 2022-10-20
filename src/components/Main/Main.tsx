@@ -43,7 +43,7 @@ const Main = () => {
           )}
         </Grid>
         <Grid item xs={4}>
-          <UserName />
+          {(questionNumber === -1 || score.username) && <UserName />}
         </Grid>
       </Grid>
     </div>
