@@ -23,7 +23,7 @@ const HighScore = () => {
 
   const onGetScore = () => {
     getScore().then((scores: Score[]) => {
-      setScores(scores);
+      setScores([...scores]);
     });
   };
 
@@ -36,7 +36,7 @@ const HighScore = () => {
     <Grid container justifyContent={"center"}>
       <Grid item xs={12} md={6}>
         <List>
-          {scores &&
+          {scores ? (
             scores.map((item, index) => (
               <div key={index}>
                 <ListItem
@@ -62,7 +62,10 @@ const HighScore = () => {
                 </ListItem>
                 <Divider variant="inset" component="li" />
               </div>
-            ))}
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
         </List>
       </Grid>
     </Grid>
