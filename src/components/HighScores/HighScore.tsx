@@ -19,7 +19,7 @@ const HighScore = () => {
   const [scores, setScores] = useState<Score[]>();
   useEffect(() => {
     onGetScore();
-  });
+  }, []);
 
   const onGetScore = () => {
     getScore().then((scores: Score[]) => {
