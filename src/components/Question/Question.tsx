@@ -13,16 +13,12 @@ const Question = ({ question, moveToNextQuestion }: Props) => {
   const { score, addScore } = useContext(QuestionContext);
 
   const answerQuestion = (answer: string) => {
-    console.log(answer);
-    console.log(question);
     if (answer === question.correctAnswer) {
       score.score++;
       addScore(score);
 
       setScore(score);
     }
-
-    console.log(score);
 
     moveToNextQuestion();
   };
@@ -45,7 +41,6 @@ const Question = ({ question, moveToNextQuestion }: Props) => {
           {value}
         </button>
       ))}
-      <button onClick={moveToNextQuestion}>Next Question</button>
     </div>
   );
 };
