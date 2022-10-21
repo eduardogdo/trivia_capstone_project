@@ -23,6 +23,7 @@ const HighScore = () => {
 
   const onGetScore = () => {
     getScore().then((scores: Score[]) => {
+      scores = scores.sort((a, b) => b.score - a.score);
       setScores([...scores]);
     });
   };
